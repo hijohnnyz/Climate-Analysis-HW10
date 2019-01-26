@@ -37,7 +37,7 @@ def precipitation():
 
 @app.route('/api/v1.0/stations')
 def station():
-    station_list = session.query(Measurement.station, Station.name).filter(Measurement.station == Station.station).http://127.0.0.1:5000/group_by(Measurement.station).all()
+    station_list = session.query(Measurement.station, Station.name).filter(Measurement.station == Station.station).group_by(Measurement.station).all()
     stations = list(np.ravel(station_list))
     return (jsonify(stations))
 
